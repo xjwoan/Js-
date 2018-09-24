@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        if(!window.localStorage){
+            console.log("浏览器localStorage");
+        }else {
+            /*
+                        var storage=window.lolStorage;
+
+                        storage.setItem("c",4);
+                        //第三种方法获取
+                        var c=storage.getItem("c");
+                        console.log(c);
+            */
+            var storage1=window.localStorage;
+            storage1.setItem("a",2);
+            console.log(storage1.getItem("a"));
+            storage1.setItem("a",4);
+            console.log(storage1.getItem("a"));
+
+/*
+            storage["a"]=1;
+
+            storage.b=2;
+*/
+
+
+/*
+            console.log(typeof storage["a"]);
+            console.log(typeof storage["b"]);
+            console.log(typeof storage["c"]);
+*/
+
+/*            //第一种方法获取
+            var a=storage.a;
+            console.log(a);
+
+            //第二种方法获取
+            var b=storage["b"];
+            console.log(b);
+            */
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

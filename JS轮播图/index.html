@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style>
+		@import url(css/index.css);
+
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="wrap" style="left: -600px">
+			<img src="image/5.jpg" alt="  ">
+			<img src="image/1.jpg" alt="  ">
+			<img src="image/2.jpg" alt="  ">
+			<img src="image/3.jpg" alt="  ">
+			<img src="image/4.jpg" alt="  ">
+			<img src="image/5.jpg" alt="  ">
+			<img src="image/1.jpg" alt="  ">
+
+		</div>
+		<div class="buttons">
+			<span class="on">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+
+		<a href="javascript:;" id="prev" class="arrow arrow_left">&lt;</a>
+
+		<a href="javascript:;" id="next" class="arrow arrow_right">&gt;</a>
+	</div>
+</body>
+<script>
+	var wrap = document.querySelector(".wrap");
+	var next = document.getElementById("next");
+	var prev = document.getElementById("prev");
+	var index = 0; //轮播图下方的小圆点
+
+	next.onclick = function() {
+		next_pic();
+	}
+	prev.onclick = function() {
+		prev_pic();
+	}
+	//下一张图片
+	function next_pic() {
+		index++;
+		if (index > 4) {
+			index = 0;
+		}
+		console.log("index: " +
+			index);
+		showCurrentDot();
+
+		var newLeft;
+		if (wrap.offsetLeft === -3600) {
+			newLeft = -1200;
+		} else {
+			newLeft = wrap.offsetLeft - 600;
+		}
+		wrap.style.left = newLeft + "px";
+	}
+
+	//上一张图片
+	function prev_pic() {
+		index--;
+		if (index < 0) {
+			index = 4;
+		}
+		console.log("index: " +
+			index);
+		showCurrentDot();
+
+		var newLeft;
+		if (wrap.offsetLeft === 0) {
+			newLeft = -2400;
+		} else {
+			newLeft = wrap.offsetLeft + 600;
+		}
+		wrap.style.left = newLeft + "px";
+	}
+
+
+
+	//自动轮播
+	var time = null;
+
+	function autoplay() {
+		timer = setInterval(function() {
+			next_pic();
+		}, 2000);
+	}
+
+	//鼠标移入   取消计时器
+	var container = document.querySelector(".container");
+
+	/*	container.onmouseenter = function() {
+			clearInterval(timer);
+		}*/
+
+	container.addEventListener("mouseenter", function(event) {
+		clearInterval(timer);
+		//console.log(event.type);
+	}, false);
+
+
+	//鼠标移出   重新调用autoplay()，创建计时器
+
+	/*	container.onmouseleave = function() {
+			autoplay();
+		}*/
+
+	container.addEventListener("mouseleave", function(event) {
+		autoplay();
+		//console.log(event.type);
+	}, false);
+
+	var dots = document.getElementsByTagName("span");
+
+	function showCurrentDot() {
+		for (var i = 0, len = dots.length; i < len; i++) {
+			dots[i].className = "";
+		}
+		dots[index].className = "on";
+	}
+	autoplay();
+
+</script>
+
+</html>

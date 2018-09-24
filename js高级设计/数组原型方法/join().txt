@@ -1,0 +1,7 @@
+1、 join() 将数组的元素组起一个字符串， 以separator为分隔符， 省略的话则用默认用逗号为分隔符。
+
+var arr = [1, 2, 4];
+
+console.log(arr.join());
+
+console.log(arr.join("-"));

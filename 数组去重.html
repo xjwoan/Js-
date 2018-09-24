@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+    <script>
+        var ;
+        function uniq(array) {
+            var arr = [];
+            var index = [];
+            var l = array.length;
+            for (var i = 0; i < l; i++) {
+                for (var j = i + 1; j < l; j++) {
+                    if (array[i] === array[j]) {
+                        i++;
+                        j = i;
+                    }
+                }
+                arr.push(array[i]);
+                index.push(i);
+            }
+            console.log(index);
+            return arr;
+        }
+        var aa = [1, 2, 2, 3, 5, 3, 6, 5];
+        console.log(uniq(aa));
+
+
+        /*        function uniq(array) {
+                    var temp = [];
+                    var index = [];
+                    var l=array.length;
+                    for(var i=0;i<l;i++){
+                        for(var j=i+1;j<l;j++){
+                            if(array[i]===array[j]){
+                                i++;
+                                j=i;
+                            }
+                        }
+                        temp.push(array[i]);
+                        index.push(i);
+                    }
+                    console.log(index);
+                    return temp;
+                }
+                var aa = [1,2,2,3,5,3,6,5];
+                console.log(uniq(aa));*/
+
+/*        function uniq(array) {
+            var arr=[];
+            for(var i=0;i<array.length;i++){
+                if(array.indexOf(array[i])==i){
+                    arr.push(array[i]);
+                }
+            }
+            return arr;
+        }
+
+        var aa = [1,2,"2",4,9,"a","a",2,3,5,6,5];
+        console.log(uniq(aa));*/
+
+/*
+        function uniq(array) {
+            array.sort();
+            var temp=[array[0]];
+            for(var i=1;i<array.length;i++){
+                if(array[i] !== temp[temp.length-1]){
+                    temp.push(array[i]);
+                }
+            }
+            return temp;
+        }
+        var aa = [1,2,"2",4,9,"a","a",2,3,5,6,5];
+        console.log(uniq(aa));
+
+
+*/
+
+/*
+        function uniq(array) {
+            var temp=[];
+            for(var i=0;i<array.length;i++){
+                if(temp.indexOf(array[i])==-1){
+                    temp.push(array[i])
+                }
+            }
+            return temp;
+        }
+        var aa = [1,2,2,4,9,6,7,5,2,3,5,6,5];
+        console.log(uniq(aa));
+
+
+*/
+
+
+
+
+
+
+/*
+ Array.prototype.unique1=function () {
+            var res=[this[0]];
+            for(var i=1;i<this.length;i++){
+                var repeat=false;
+                for(var j=0;j<res.length;j++){
+                    if(this[i]==res[j]){
+                        repeat=true;
+                        break;
+                    }
+                }
+                if(!repeat){
+                    res.push(this[i]);
+                }
+            }
+            return res;
+        }
+        var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0];
+        alert(arr.unique1());*/
+
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var filter=/`a-z at$/;
+        var filter2=new RegExp('[a-z]at$');
+        var value='cat';
+        if(filter2.test(value)){
+            console.log('ok');
+        }else {
+            console.log("error");
+        }
+
+
+
+/*        //闭包
+        var fun=(function checkScope() {
+            var scope='son';
+            return function sonScope() {
+                var scope="son1";
+                return scope;
+            }
+        }());
+        fun();
+
+       var fun= (function setup(x) {
+            var i=0;
+            return function () {
+                return x[i++];
+            }
+        }(['a','b','c']));
+       func();*/
+
+
+
+
+
+/* //闭包
+  function createComparisonFunction(propertyName) {
+            return function (object1,object2) {
+                var value1=object1[propertyName];
+                var value2=object2[propertyName];
+
+                if(value1<value2){
+                    return -1;
+                }else if(value1>value2){
+                    return 1;
+                }else {
+                    return 0;
+                }
+            };
+        }
+        */
+/*
+        function SuperType(name) {
+            this.name=name;
+            this.colors=["red","blue","yellow"];
+        }
+        SuperType.prototype.getName=function () {
+            return this.name;
+        }
+
+        function SubType(name,age) {
+            SuperType.call(this,name);
+            this.age=age;
+        }
+        SubType.prototype=new SuperType();
+        SubType.prototype.constructor=SubType;
+        SubType.prototype.getAge=function () {
+            console.log(this.age);
+        };
+
+        var instance1=new SubType("薛蓝宇",20);
+        instance1.colors.push("block");
+        console.log(instance1.colors);
+        instance1.getName();
+        instance1.getAge();
+*/
+
+/*        function Action(name) {}
+        Action.prototype.canDo=function () {
+            console.log("吃饭睡觉");
+        }
+
+        function Ben() {}
+        Ben.prototype=new Action();
+        var aa=new Ben();
+        aa.canDo();*/
+
+/*
+        function Person(){
+        };
+
+        Person.prototype.name='薛蓝宇';
+        Person.prototype.age=20;
+        Person.prototype.action=function () {
+            console.log(this.name);
+        }
+
+        var person1=new Person();
+        var person2=new Person();
+        person1.__proto__.name='薛蓝宇被覆盖';
+
+        console.log(Person.prototype.isPrototypeOf(person1));
+*/
+
+/*
+        //原型链
+        function SuperType() {
+            this.property=true;
+        }
+
+        SuperType.prototype.getSuperValue=function () {
+            return this.property;
+        }
+
+        function SubType() {
+            this.subproperty=false;
+        }
+
+        SubType.prototype=new SuperType();
+
+        SubType.prototype.getSubValue=function(){
+            return this.subproperty;
+        };
+
+        var instance=new SubType();
+        console.log(instance.getSuperValue());
+*/
+
+/*
+        //构造函数和原型模式
+        function Person(name,age,job) {
+            this.name=name;
+            this.age=age;
+            this.job=job;
+            this.frinds=["陈豪","吴永鑫"];
+        }
+        Person.prototype={
+            sayName:function () {
+                console.log(this.name);
+            },
+            sayAge:function () {
+                console.log(this.age);
+            }
+        }
+
+        var person1=new Person("薛蓝宇",20,"web前端");
+        var person2=new Person("娃哈哈",21,"web后台");
+
+        person1.sayName();
+        person1.sayAge();
+        person2.sayName();
+        person2.sayAge();
+*/
+
+/*
+        //更简单的原型语法
+        function Person() {}
+        Person.prototype={
+            name:"薛蓝宇",
+            age:20,
+            job:"web前端",
+            sayName:function () {
+                console.log(this.name);
+            }
+        };
+        var person1=new Person();
+        person1.sayName();
+
+*/
+
+/*
+        //原型prototype属性
+        function Person() {
+        }
+        Person.prototype.name="薛蓝宇";
+        Person.prototype.age=20;
+        Person.prototype.sayName=function () {
+            console.log(this.name);
+        };
+        Person.prototype.sayAge=function () {
+            console.log(this.age);
+        };
+
+        var person1=new Person();
+        person1.sayName();
+        person1.sayAge();
+
+        var person2=new Person();
+        person2.name="薛";
+        person2.sayName();
+
+        delete person2.name;
+        console.log("删除创建的name后："+person2.name);
+*/
+
+        //hasOwnProperty只能识别来自实例的属性
+        //in都能识别
+
+/*        var arr=[{a:1,q:2,w:4},{d:1,r:2,c:4}];
+
+        for(var i=0;i<arr.length;i++){
+            if(arr[i].hasOwnProperty('a')){
+                console.log(arr[i])
+            }else{
+                console.log("error");
+            }
+        }*/
+
+/*        var arr=[ {x:1},{y:2},{z:3}];
+        for (a in arr){console.log(a)};*/
+
+/*        //属性的设置和获取--(区别：.是取得自身的属性 ，[]可以是变量)
+        var obj={}
+        obj.name='sonla';
+        obj['age']=22;
+        console.log(obj['name']);
+        console.log(obj.age);
+
+        //[]里面可以是变量
+        var o={};
+        o.name='xxx';
+        console.log(o['name']);
+        //= == ===   === 会对类型进行判断
+        //for in遍历对象.....*/
+
+
+
+/*
+//创建对象
+  function Person(name,age) {
+            this.name=name;
+            this.age=age;
+
+            this.getName=function () {
+                return this.name;
+            }
+            this.getAge=function () {
+                return this.age;
+            }
+        }
+
+        var xly=new Person("薛蓝宇",20);
+        var xly1=new Person("xuelanyu",21);
+        console.log(xly.getName());
+        console.log(xly.getAge());
+        console.log(xly1.getName());
+        console.log(xly1.getAge());
+*/
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

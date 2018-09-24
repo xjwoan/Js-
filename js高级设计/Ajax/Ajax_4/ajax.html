@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ajax_4-</title>
+</head>
+
+<body>
+	<button id="button">获取PHP数据</button>
+
+	<br><br>
+
+	<script>
+		document.getElementById('button').addEventListener('click', getData);
+
+		function getData() {
+			var xhr = new XMLHttpRequest();
+
+			xhr.open("Get", "process.php?name=xxx", true);
+
+			xhr.onload = function() {
+				console.log(this.responseText);
+			}
+			xhr.send();
+		}
+
+	</script>
+</body>
+
+</html>

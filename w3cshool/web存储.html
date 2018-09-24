@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function clickCounter() {
+            if(typeof(Storage)!=="undefined"){
+                if(localStorage.clickcount){
+                    localStorage.clickcount=Number(localStorage.clickcount)+1;
+                }else {
+                    localStorage.clickcount=1;
+                }
+                document.getElementById("result").innerHTML="点击次数"+localStorage.clickcount+"次";
+            }else {
+                 document.getElementById("result").innerHTML="不支持web存储";
+            }
+        }
+    </script>
+</head>
+<body>
+<button onclick="clickCounter()" type="button">点击</button>
+<div id="result"></div>
+</body>
+</html>

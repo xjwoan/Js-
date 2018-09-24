@@ -1,0 +1,20 @@
+//数组中 for in循环
+
+var arr=['孙权','刘备','曹操'];
+
+for(i in arr){
+	console.log(i+': '+arr[i]);
+}
+
+
+//对象中
+var obj=new Object();
+obj={
+	father:'刘备',
+	son:'阿斗',
+	son1:'阿斗1',
+	son2:'阿斗2'
+}
+for(i in obj){
+	console.log(i+':'+obj[i]);
+}
